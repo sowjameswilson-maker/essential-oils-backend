@@ -114,8 +114,9 @@ app.post('/webhook', express.raw({ type: 'application/json' }), async (req, res)
 // ------------------------------------------------------
 const allowedOrigins = [
   'http://localhost:5500', // local testing
-  'https://kaleidoscopic-fairy-7e50b5.netlify.app', // Netlify frontend
-  'https://naturallyofcourse.ca',                  // custom domain
+  'https://golden-bienenstitch-87d963.netlify.app', // Netlify frontend
+  'https://naturallyofcourse.ca',
+  'https://www.naturallyofcourse.ca'                  // custom domain
 ];
 
 app.use(cors({
