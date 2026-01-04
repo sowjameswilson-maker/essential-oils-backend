@@ -11,7 +11,6 @@ const mongoose = require('mongoose');
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 const bodyParser = require('body-parser');
 const multer = require('multer');
-const sendOrderReceipt = require('./mailer'); // add this at the top of server.js
 const { sendOrderReceipt, sendAdminSaleNotification } = require('./mailer');
 
 // ------------------------------------------------------
