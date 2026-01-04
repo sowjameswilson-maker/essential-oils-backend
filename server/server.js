@@ -93,8 +93,10 @@ app.post('/webhook', express.raw({ type: 'application/json' }), async (req, res)
   });
 
   await order.save();
-  await sendAdminSaleNotification(order);
   console.log('✔ Order saved:', order._id);
+
+  // ✅ ADMIN NOTIFICATION
+  await sendAdminSaleNotification(order);
 
   // Reduce stock (optional, keep your existing code)
   for (const item of cartItems) {
