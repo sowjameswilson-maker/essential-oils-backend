@@ -97,6 +97,7 @@ app.post('/webhook', express.raw({ type: 'application/json' }), async (req, res)
 
   // ✅ ADMIN NOTIFICATION
   await sendAdminSaleNotification(order);
+  console.log('Sending admin email to:', process.env.ADMIN_EMAIL);
 
   // Reduce stock (optional, keep your existing code)
   for (const item of cartItems) {
