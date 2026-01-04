@@ -12,6 +12,7 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 const bodyParser = require('body-parser');
 const multer = require('multer');
 const sendOrderReceipt = require('./mailer'); // add this at the top of server.js
+const { sendOrderReceipt, sendAdminSaleNotification } = require('./mailer');
 
 // ------------------------------------------------------
 // 🚀 INITIALIZE APP
@@ -93,6 +94,7 @@ app.post('/webhook', express.raw({ type: 'application/json' }), async (req, res)
   });
 
   await order.save();
+  await sendAdminSaleNotification(order);
   console.log('✔ Order saved:', order._id);
 
   // Reduce stock (optional, keep your existing code)
